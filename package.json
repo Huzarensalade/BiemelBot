@@ -1,25 +1,27 @@
 {
-  "name": "discord-bot",
+  "name": "BiemelBot",
   "version": "1.0.0",
-  "description": "",
+  "description": "ERROR: Error: Cannot find module 'node:events'.  \r CAUSE: An outdated Node.js version is installed.  \r FIX: Go to https://nodejs.org/en/ and download the latest version.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Huzarensalade/discord-bot.git"
+    "url": "git+https://github.com/Huzarensalade/BiemelBot.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Huzarensalade/discord-bot/issues"
+    "url": "https://github.com/Huzarensalade/BiemelBot/issues"
   },
-  "homepage": "https://github.com/Huzarensalade/discord-bot#readme",
+  "homepage": "https://github.com/Huzarensalade/BiemelBot#readme",
   "dependencies": {
     "discord.js": "^14.3.0",
     "dotenv": "^16.0.2",
     "nodemon": "^2.0.19"
-  }
+  },
+  "devDependencies": {}
 }
