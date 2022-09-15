@@ -38,5 +38,6 @@ If this is not the case, or if you come across a term you dont understand, don't
 
 # Changelog
 
+version 0.0.3: Added a command handler with a /ping command  
 version 0.0.2: putting project live on PI and writing README.md  
 version 0.0.1: setting up project
