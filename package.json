@@ -2,10 +2,10 @@
   "name": "BiemelBot",
   "version": "1.0.0",
   "description": "ERROR: Error: Cannot find module 'node:events'.  \r CAUSE: An outdated Node.js version is installed.  \r FIX: Go to https://nodejs.org/en/ and download the latest version.",
-  "main": "index.js",
+  "main": "BiemelBot.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "node BiemelBot.js"
   },
   "repository": {
     "type": "git",
