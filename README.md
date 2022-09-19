@@ -16,7 +16,7 @@ If this is not the case, or if you come across a term you dont understand, don't
 1.  Clone the Main branche to your folder.
 2.  Open the folder in VS Code.
 3.  Open the terminal.
-4.  Run command "npm install discord.js dotenv".
+4.  Run command "npm install discord.js @discordjs/rest dotenv mongoose@latest".
 5.  In root, create file ".env" and insert the data provided by the project leader.
 6.  If everything went well, you can type "node BiemelBot.js" and the bot will succesfully launch, as you can see it online in the test server.
 
@@ -37,8 +37,25 @@ If this is not the case, or if you come across a term you dont understand, don't
 2.  merge main branche into the current branche.
 3.  Follow the same steps as creating a new module from here. Start coding, commit and push, and when you are done create a new pull request.
 
-# Changelog
+# Code Examples
 
-version 0.0.3: Added a command handler with a /ping command  
-version 0.0.2: putting project live on PI and writing README.md  
-version 0.0.1: setting up project
+```js
+// making a database schema (new file in folder ./DB-Schemas)
+const mongoose = require("mongoose");
+
+const schema = new mongoose.Schema({
+  message: {
+    type: String,
+    required: true,
+  },
+});
+
+module.exports = mongoose.model("testing", schema);
+
+// making a database call using a schema (in your command/function)
+const testSchema = require("./DB-Schemas/test-schema");
+
+await new testSchema({
+  message: "hello world",
+}).save();
+```

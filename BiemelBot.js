@@ -2,6 +2,7 @@ const { Client, GatewayIntentBits, Collection } = require("discord.js");
 require("dotenv/config");
 const fs = require("fs");
 const path = require("node:path");
+const mongoose = require("mongoose");
 
 const client = new Client({
   intents: [
