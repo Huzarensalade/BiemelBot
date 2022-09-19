@@ -2,6 +2,7 @@ const { Client, GatewayIntentBits, Collection } = require("discord.js");
 require("dotenv/config");
 const fs = require("fs");
 const path = require("node:path");
+const mongoose = require("mongoose");
 
 const client = new Client({
   intents: [
@@ -11,8 +12,16 @@ const client = new Client({
   ],
 });
 
-client.once("ready", () => {
-  console.log("BiemelBot started and ready!");
+client.once("ready", async () => {
+  // try database connection
+  await mongoose.connect(
+    `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@${process.env.DBURI}/?retryWrites=true&w=majority`,
+    {
+      keepAlive: true,
+    }
+  );
+
+  console.log("BiemelBot startup succesfull!");
 });
 
 //#region Command Handler
