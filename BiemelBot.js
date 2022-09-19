@@ -27,7 +27,7 @@ for (const file of commandFiles) {
 //#endregion
 
 //#region Event Handler
-const eventsPath = path.join(__dirname, "events");
+const eventsPath = path.join(__dirname, "Events");
 const eventFiles = fs
   .readdirSync(eventsPath)
   .filter((file) => file.endsWith(".js"));

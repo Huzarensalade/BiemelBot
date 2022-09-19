@@ -37,6 +37,10 @@ If this is not the case, or if you come across a term you dont understand, don't
 2.  merge main branche into the current branche.
 3.  Follow the same steps as creating a new module from here. Start coding, commit and push, and when you are done create a new pull request.
 
+# Code Standards
+
+1.  when creating modules with multiple commands, group them under a syntax like /pr-add and /pr-stats
+
 # Code Examples
 
 ```js
