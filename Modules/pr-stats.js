@@ -1,4 +1,4 @@
-const { ButtonBuilder, ButtonStyle, ActionRowBuilder } = require("discord.js");
+const { EmbedBuilder } = require("discord.js");
 const PR_Schema = require("../DB-Schemas/pr-schema");
 
 module.exports.createProfile = async (interaction) => {
@@ -71,4 +71,44 @@ module.exports.addRecord = async (interaction) => {
     content: "PR succesvol toegevoegd!",
     ephemeral: true,
   });
+};
+
+module.exports.showEmbed = async (interaction) => {
+  await interaction.deferReply({ ephemeral: true });
+
+  let user = interaction.options.getUser("target");
+  if (user == null) {
+    user = interaction.user;
+  }
+
+  const execute = await PR_Schema.findOne({ userID: user.id }).exec();
+  if (execute == null) {
+    await interaction.editReply({
+      content: "Profiel niet gevonden.",
+      ephemeral: true,
+    });
+
+    return;
+  }
+
+  const dbData = Object.entries(execute["_doc"]);
+  const rawEmbedFields = dbData.map(function ([key, value]) {
+    if (key != "_id" && key != "__v" && key != "userID") {
+      return { name: key, value: `${value} KG` };
+    }
+  });
+
+  const finalEmbedFields = rawEmbedFields.filter((element) => {
+    return element !== undefined;
+  });
+
+  console.log(finalEmbedFields);
+
+  const prCard = new EmbedBuilder()
+    .setColor(0x0099ff)
+    .setTitle(`${user.username}'s PR-Card`)
+    .setThumbnail(user.avatarURL())
+    .addFields(...finalEmbedFields);
+
+  interaction.editReply({ embeds: [prCard], ephemeral: true });
 };
