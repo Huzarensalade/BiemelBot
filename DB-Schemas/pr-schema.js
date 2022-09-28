@@ -5,16 +5,14 @@ const schema = new mongoose.Schema({
     type: Number,
     required: true,
   },
-  Stats: {
-    Benchpress: {
-      type: Number,
-    },
-    Legpress: {
-      type: Number,
-    },
-    Squads: {
-      type: Number,
-    },
+  Benchpress: {
+    type: Number,
+  },
+  Legpress: {
+    type: Number,
+  },
+  Squads: {
+    type: Number,
   },
 });
 
