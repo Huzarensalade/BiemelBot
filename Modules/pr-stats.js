@@ -58,17 +58,6 @@ module.exports.addRecord = async (interaction) => {
   ).exec();
 
   if (execute == null) {
-    const buttons = new ActionRowBuilder().addComponents(
-      new ButtonBuilder()
-        .setCustomId("NewProfile")
-        .setLabel("Click me!")
-        .setStyle(ButtonStyle.Success),
-      new ButtonBuilder()
-        .setCustomId("Cancel")
-        .setLabel("Click me!")
-        .setStyle(ButtonStyle.Danger)
-    );
-
     await interaction.editReply({
       content:
         "Profiel niet gevonden, maak een nieuw profiel aan met /pr create",
