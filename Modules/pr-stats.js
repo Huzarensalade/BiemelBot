@@ -23,3 +23,21 @@ module.exports.createProfile = async (interaction) => {
     ephemeral: true,
   });
 };
+module.exports.deleteProfile = async (interaction) => {
+  await interaction.deferReply({ ephemeral: true });
+
+  const userID = interaction.user.id;
+  const execute = await PR_Schema.findOneAndDelete({ userID: userID }).exec();
+
+  if (execute != null) {
+    await interaction.editReply({
+      content: "Profiel succesvol verwijderd",
+      ephemeral: true,
+    });
+  } else {
+    await interaction.editReply({
+      content: "Profiel niet gevonden.",
+      ephemeral: true,
+    });
+  }
+};
