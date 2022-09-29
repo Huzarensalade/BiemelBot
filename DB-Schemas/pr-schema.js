@@ -8,7 +8,16 @@ const schema = new mongoose.Schema({
   Benchpress: {
     type: Number,
   },
+  Deadlift: {
+    type: Number,
+  },
+  LatPulldown: {
+    type: Number,
+  },
   Legpress: {
+    type: Number,
+  },
+  PullUp: {
     type: Number,
   },
   Squads: {
