@@ -1,5 +1,3 @@
-const mongoose = require("mongoose");
-require("dotenv/config");
 const path = require("node:path");
 const fs = require("fs");
 
@@ -7,13 +5,6 @@ module.exports = {
   name: "ready",
   once: true,
   async execute(client) {
-    // try database connection
-    await mongoose.connect(
-      `mongodb+srv://${process.env.DBUSER}:${process.env.DBPASS}@${process.env.DBURI}/?retryWrites=true&w=majority`,
-      {
-        keepAlive: true,
-      }
-    );
     //#region Event Handler
     const bootPath = path.join(process.cwd(), "Boot");
     const bootFiles = fs
