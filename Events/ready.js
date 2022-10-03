@@ -5,7 +5,7 @@ module.exports = {
   name: "ready",
   once: true,
   async execute(client) {
-    //#region Event Handler
+    //#region Boot Handler
     const bootPath = path.join(process.cwd(), "Boot");
     const bootFiles = fs
       .readdirSync(bootPath)

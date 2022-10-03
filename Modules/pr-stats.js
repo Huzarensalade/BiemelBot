@@ -102,8 +102,6 @@ module.exports.showEmbed = async (interaction) => {
     return element !== undefined;
   });
 
-  console.log(finalEmbedFields);
-
   const prCard = new EmbedBuilder()
     .setColor(0x0099ff)
     .setTitle(`${user.username}'s PR-Card`)
