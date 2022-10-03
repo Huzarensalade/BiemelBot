@@ -22,7 +22,7 @@ If this is not the case, or if you come across a term you dont understand, don't
 
 # Creating a new module
 
-1.  Create a new brach, formatted as followed, where name is the name of the module you want to build: Module "name".
+1.  Create a new brach, formatted as followed, where name is the name of the module you want to build: Module "name". (or merge an existing one with main)
 2.  Start coding. It is important that you commit every now and then, and explain in your commits what you changed.
     Make sure you test everything and make sure no errors pop up. If you want to make a checkpoint, push your commits to your branch.
     If you create a new command, you need to run "node deploy-commands.js" and restart the bot to add the command to the server.
