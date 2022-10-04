@@ -5,7 +5,6 @@ module.exports = {
   name: "pr-leaderboards",
   async execute(client) {
     const channel = client.channels.cache.get(process.env.PRLEADERBOARDS);
-    let minuteCounter = 0;
 
     // clear channel
     const messageList = await channel.messages.fetch();
@@ -31,8 +30,7 @@ module.exports = {
         await fillLeaderboard(
           leaderboardMessage,
           leaderboardContent,
-          attributeList,
-          client
+          attributeList
         );
         editCounter(counterMessage, minuteCounter);
       } else {
@@ -52,8 +50,7 @@ function editCounter(counterMessage, minuteCounter) {
 async function fillLeaderboard(
   leaderboardMessage,
   leaderboardContent,
-  attributeList,
-  client
+  attributeList
 ) {
   const data = await PR_Schema.find({});
   attributeList.forEach((workout) => {
