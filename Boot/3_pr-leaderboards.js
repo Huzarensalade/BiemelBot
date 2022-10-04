@@ -5,7 +5,7 @@ module.exports = {
   name: "pr-leaderboards",
   async execute(client) {
     const channel = client.channels.cache.get(process.env.PRLEADERBOARDS);
-    let minuteCounter = 5;
+    let minuteCounter = 0;
 
     // clear channel
     const messageList = await channel.messages.fetch();
@@ -39,7 +39,7 @@ module.exports = {
         minuteCounter = minuteCounter - 1;
         editCounter(counterMessage, minuteCounter);
       }
-    }, 1000);
+    }, 1000 * 60);
   },
 };
 
