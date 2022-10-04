@@ -36,9 +36,7 @@ async function registerCommands(client) {
     )
     .then(
       (data) =>
-        console.log(
-          `Successfully registered ${data.length} application commands.`
-        ),
+        console.log(`Server successfully registered ${data.length} commands!`),
 
       loadCommands(client)
     )
@@ -52,11 +50,13 @@ async function loadCommands(client) {
     .readdirSync(commandsPath)
     .filter((file) => file.endsWith(".js"));
 
+  let counter = 0;
   for (const file of commandFiles) {
     const filePath = path.join(commandsPath, file);
     const command = require(filePath);
     client.commands.set(command.data.name, command);
+    counter++;
   }
 
-  console.log("Succesfully loaded all commands!");
+  console.log(`Bot succesfully loaded ${counter} commands!`);
 }
