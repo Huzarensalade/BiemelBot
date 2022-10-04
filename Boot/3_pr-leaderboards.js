@@ -68,9 +68,9 @@ async function fillLeaderboard(
         counter++;
       }
     });
-  });
 
-  leaderboardMessage.edit(leaderboardContent);
+    leaderboardMessage.edit(leaderboardContent);
+  });
 }
 
 function sort_by(field, reverse, primer) {
