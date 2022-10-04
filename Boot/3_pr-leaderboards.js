@@ -5,6 +5,7 @@ module.exports = {
   name: "pr-leaderboards",
   async execute(client) {
     const channel = client.channels.cache.get(process.env.PRLEADERBOARDS);
+    let minuteCounter = 1;
 
     // clear channel
     const messageList = await channel.messages.fetch();
@@ -25,19 +26,21 @@ module.exports = {
     const counterMessage = await channel.send(counterContent);
 
     setInterval(async () => {
-      if (minuteCounter == 0) {
-        minuteCounter = 60;
+      if (minuteCounter == 1) {
+        minuteCounter = 0;
+        editCounter(counterMessage, minuteCounter);
         await fillLeaderboard(
           leaderboardMessage,
           leaderboardContent,
           attributeList
         );
+        minuteCounter = 60;
         editCounter(counterMessage, minuteCounter);
       } else {
         minuteCounter = minuteCounter - 1;
         editCounter(counterMessage, minuteCounter);
       }
-    }, 1000 * 60);
+    }, 60000);
   },
 };
 
@@ -65,9 +68,9 @@ async function fillLeaderboard(
         counter++;
       }
     });
-
-    leaderboardMessage.edit(leaderboardContent);
   });
+
+  leaderboardMessage.edit(leaderboardContent);
 }
 
 function sort_by(field, reverse, primer) {
