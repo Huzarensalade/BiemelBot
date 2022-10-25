@@ -37,10 +37,6 @@ If this is not the case, or if you come across a term you dont understand, don't
 2.  merge main branche into the current branche.
 3.  Follow the same steps as creating a new module from here. Start coding, commit and push, and when you are done create a new pull request.
 
-# Code Standards
-
-1.  when creating modules with multiple commands, group them under a syntax like /pr-add and /pr-stats
-
 # Code Examples
 
 ```js
@@ -63,3 +59,20 @@ await new testSchema({
   message: "hello world",
 }).save();
 ```
+
+# Common Errors
+ERROR:    The term 'node' is not recognized as the name of a cmdlet, function, script file, or operable program.
+REASON:   Node.js is not installed correctly or VS-Code doesn't have permission to run it.
+FIX:      Install the latest Node.js version and restart VS-Code
+
+ERROR:    Cannot find module 'discord.js'
+REASON:   discord.js is not installed
+FIX:      Run npm install command at "#installing the source code, item 4, rule 19"
+
+ERROR:    Unexpected token '.' when trying to run 'npm install'
+REASON:   Outdated NVM version installed
+FIX:      Install the latest NVM version and restart VS-Code
+
+ERROR:    An invalid token was provided.
+REASON:   You don't have the .env file set up or the values are incorrect
+FIX:      Copy all values from the discord server development channel into your .env file (or create a new .env file)
