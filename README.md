@@ -16,7 +16,7 @@ If this is not the case, or if you come across a term you dont understand, don't
 1.  Clone the Main branche to your folder.
 2.  Open the folder in VS Code.
 3.  Open the terminal.
-4.  Run command "npm install discord.js @discordjs/rest dotenv mongoose@latest".
+4.  Run command "npm install discord.js @discordjs/rest dotenv mongoose@latest @discordjs/voice".
 5.  In root, create file ".env" and insert the data provided by the project leader.
 6.  If everything went well, you can type "node BiemelBot.js" and the bot will succesfully launch, as you can see it online in the test server.
 
